@@ -1,0 +1,698 @@
+/* ---フォント設定 --- */
+
+.m-plus-1p-regular {
+  font-family: "M PLUS 1p", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.m-plus-1p-medium {
+  font-family: "M PLUS 1p", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.m-plus-1p-bold {
+  font-family: "M PLUS 1p", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.quicksand-500 {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* ---全体のスタイル --- */
+
+body {
+  font-family: "Quicksand", "M PLUS 1p", sans-serif;
+  color: #0f172a;
+  line-height: 1.5;
+}
+
+/* --- ヘッダー　のスタイル --- */
+
+/* スムーズスクロールの設定 */
+html {
+  /* リンクをクリックしたときに滑らかにスクロールさせる */
+  scroll-behavior: smooth;
+  /* ヘッダーの高さ分（約70px）だけスクロールの停止位置を下にずらす */
+  scroll-padding-top: 80px;
+}
+
+/* ヘッダーナビゲーションのスタイル */
+.site-header {
+  position: sticky;          /* 画面上部に固定 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;             /* 他の要素より常に手前に表示 */
+  background-color: rgba(255, 255, 255, 0.85); /* 半透明の白 */
+  backdrop-filter: blur(8px);/* 背景をぼかす */
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ロゴ */
+.header-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+/* ナビメニュー */
+.header-nav ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* ホバー時の効果 */
+.header-nav a:hover {
+  color: #0f172a;
+}
+
+.header-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #facc15;
+  transition: width 0.2s ease;
+}
+
+.header-nav a:hover::after {
+  width: 100%;
+}
+
+/* スマホ表示対応 (画面が狭いときは文字サイズと間隔を調整) */
+@media (max-width: 600px) {
+  .header-nav ul {
+    gap: 12px;
+  }
+  .header-nav a {
+    font-size: 0.85rem;
+  }
+}
+
+/* ---ファーストビューのスタイル --- */
+
+.profile-section {
+  padding: 80px 20px 60px;
+  width: 100%;
+}
+
+/* 画面中央に配置し、横並びにする親コンテナ */
+.profile-container {
+  max-width: 1000px;         /* 上限幅 */
+  margin: 0 auto;            /* 左右中央揃え */
+  display: flex;             /* アイコン、本文、マスコットを横並びにする */
+  align-items: center;       /* 上下の高さを中央で揃える */
+  justify-content: space-between; /* 均等に隙間をあける */
+  gap: 32px;                 /* 要素間の隙間 */
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* 画像を円形にする */
+  object-fit: cover; /* アスペクト比を維持する */
+  flex-shrink: 0;
+  border: 5px solid #fcba03;
+}
+
+.profile-content {
+  flex: 1; /* 余ったスペースを使って広がる */
+}
+
+.my-name {
+  margin: 0 0 12px 0;
+  font-size: 2rem;
+  color: #0f172a;
+}
+
+.profile-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tag {
+  display: inline-block; /* インラインブロックにすることで、余白を設定できるようにする */
+  padding: 5px 10px; /* 余白 */
+  font-weight: 500; /* 文字の太さ */
+  border-radius: 9999px; /* 角を丸くする */
+  font-size: 0.85rem;
+}
+
+.web-tag {
+  background-color: #d1e7ff; /* 背景色 */
+  color: #0d6efd; /* 文字色 */
+  border: 3px solid #a3c9ff; /* 枠線 */
+}
+
+.game-tag {
+  background-color: #f3e8ff; /* 背景色 */
+  color: #6b21a8; /* 文字色 */
+  border: 3px solid #d8bfff; /* 枠線 */
+}
+
+.status-tag {
+  background-color: #fcf797; /* 背景色 */
+  color: #7d541b; /* 文字色 */
+  border: 3px solid #ffda36; /* 枠線 */
+}
+
+.profile-text p {
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* マスコット画像の基本設定 */
+.profile-mascot {
+  flex-shrink: 0;
+  margin-right: 30px;
+}
+
+.mascot-image {
+  width: 160px;
+  height: auto;
+  display: block;
+  /* アニメーションの指定: 名前 / 時間 / 動きの緩急 / 無限ループ */
+  animation: floatUFO 3.5s ease-in-out infinite;
+}
+
+/* ふわふわ浮遊するキーフレームアニメーション */
+@keyframes floatUFO {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    /* 途中で上に12px浮き上がり、ほんの少し右に傾く */
+    transform: translateY(-12px) rotate(2deg);
+  } 
+  100% {
+    /* 元の位置・角度に戻る */
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* スマホ表示対応 (768px以下で縦積みに) */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-tags {
+    justify-content: center;
+  }
+
+  .profile-mascot {
+    margin-right: 0;
+  }
+}
+
+/* --- About のスタイル --- */
+
+/* Aboutセクション全体 */
+.about-section {
+  padding: 80px 20px;
+  background-color: #f8fafc; /* 背景色 */
+}
+
+.container {
+  max-width: 960px; /* 幅の上限 */
+  margin: 0 auto; /* 左右の余白 */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem; /* 文字サイズ 2倍 */
+  margin-bottom: 48px; /* 下との余白 */
+  position: relative; /* 現在位置を基準にして、要素を相対位置へと移動 */
+}
+
+/* タイトルの下に黄色のアクセントライン */
+.section-title::after {
+  content: ""; /* 空の要素を作る */
+  display: block; /* 箱の形にして幅や高さを扱えるようにする */
+  width: 48px;
+  height: 4px;
+  background-color: #facc15;
+  margin: 8px auto 0;
+  border-radius: 2px; /* 線の両端をほんのり丸める */
+}
+
+/* 2カラムレイアウト（PCでは横並び、スマホでは縦並び） */
+.about-content {
+  display: flex;
+  gap: 32px;
+}
+
+.about-card {
+  flex: 1; /* 2枚のカードが 1:1 で均等に広がる */
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px; /* 角を丸める */
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.overview-card p {
+  margin-bottom: 16px;
+  line-height: 1.8;
+  font-weight: 500; /* 文字の太さ */
+  color: #334155;
+}
+
+/* タイムラインのスタイル */
+.timeline {
+  list-style: none; /* リストタグ（ul）の黒丸ポチを消す */
+  padding: 0;
+  margin: 0;
+  position: relative; /* 縦線を置くための基準点 */
+}
+
+/* 縦のガイド線 */
+.timeline::before {
+  content: "";
+  position: absolute; /* 自由配置モード */
+  top: 8px; /* 線が始まる一番上の位置 */
+  bottom: 8px; /* 線が終わる一番下の位置 */
+  left: 13px; /* 左から13pxの場所に線を引く */
+  width: 2px;
+  background-color: #e2e8f0;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 36px; /* 左側に縦線と丸ポチを置くスペースを空けておく */
+  margin-bottom: 24px; /* 項目同士の縦の間隔 */
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0; /* 一番最後の項目だけ、下の余白をゼロにする */
+}
+
+/* タイムラインの丸ポチ（現在進行形の項目は黄色） */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 4px; /* 縦線（left: 13px）の真ん中に重なる位置に調整 */
+  top: 6px; /* 文字の高さに合わせて少し下に下げる */
+  width: 14px;
+  height: 14px;
+  border-radius: 50%; /* まん丸にする */
+  background-color: #cbd5e1;
+  border: 3px solid #ffffff;
+}
+
+.timeline-item:last-child::before {
+  background-color: #facc15; /* 最後のポチを目立たせる */
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748b;
+  display: block; /* 改行させて見出しの上に置く */
+  margin-bottom: 4px;
+}
+
+.timeline-text strong {
+  display: block;
+  font-size: 1rem;
+  color: #0f172a;
+  margin-bottom: 4px; 
+}
+
+.timeline-text p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* スマホ表示対応（768px以下で縦積みに） */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column; /* 左右2枚のカードを「縦並び（1列）」に積み直す */
+  }
+}
+
+/* --- Skills のスタイル --- */
+.skills-section {
+  padding: 80px 20px;
+  background-color: #ffffff; /* Aboutの薄グレーと交互にしてメリハリをつける */
+}
+
+/* カードを整然と並べるグリッドレイアウト */
+.skills-content {
+  display: grid;
+  /* 最小280pxの幅を確保しつつ、画面幅に合わせて自動で列数を調整 */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* 各スキルカード */
+.skill-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* バッジを常にカードの一番下に揃える */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ホバー時にほんのり浮き上がる演出 */
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+  border-color: #facc15; /* テーマカラーの黄色でフチ取り */
+}
+
+/* アイコンと技術名のヘッダー */
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.skill-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.skill-name {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #0f172a;
+}
+
+/* スキルの説明文 */
+.skill-desc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+/* 右下に小さくつくステータスバッジ */
+.skill-badge {
+  align-self: flex-start; /* 左寄せにする */
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Main: メインで使いこなす主力スキル */
+.badge-main {
+  background-color: #fef08a;
+  color: #854d0e;
+}
+
+/* Basic: 開発の土台・基本操作ができるツール */
+.badge-basic {
+  background-color: #e2e8f0;
+  color: #334155;
+}
+
+/* Next: これから挑戦・学習するステップ */
+.badge-next {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+/* --- Works のデザイン ---*/
+
+/* Worksセクション全体 */
+.works-section {
+  padding: 80px 20px;
+  background-color: #f8fafc; /* 薄グレー背景 */
+}
+
+/* フィルター切り替えタブ */
+.works-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  border-color: #facc15;
+  color: #0f172a;
+}
+
+.tab-btn.active {
+  background-color: #facc15;
+  border-color: #facc15;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* 作品カードコンテンツ */
+.works-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+/* カード本体 */
+.work-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden; /* 角丸から画像がはみ出さないように */
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* サムネイル画像エリア */
+.work-image {
+  width: 100%;
+  height: 180px;
+  background-color: #e2e8f0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 枠いっぱいに綺麗に収める */
+  transition: transform 0.3s ease;
+}
+
+.work-card:hover .work-image img {
+  transform: scale(1.05); /* ホバーで画像がほんのり拡大 */
+}
+
+/* カードのテキストエリア */
+.work-item {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* ボタンを常に一番下に揃える */
+}
+
+/* 技術バッジ */
+.work-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.tech-tag {
+  font-size: 0.75rem;
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.work-title {
+  font-size: 1.25rem;
+  margin: 0 0 10px 0;
+  color: #0f172a;
+}
+
+.work-text {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  flex-grow: 1; /* 説明文の長さが違っても下のボタン位置が揃う */
+}
+
+/* リンクボタン */
+.work-links {
+  display: flex;
+  gap: 12px;
+}
+
+.work-btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Demoボタン（黄色で目立たせる） */
+.btn-demo {
+  background-color: #facc15;
+  color: #0f172a;
+}
+
+.btn-demo:hover {
+  background-color: #eab308;
+}
+
+/* Codeボタン（白地・枠線） */
+.btn-code {
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-code:hover {
+  background-color: hsl(180, 4%, 5%);
+  border-color: #94a3b8;
+  color: #ffffff;
+}
+
+/* --- Contact のデザイン --- */
+.contact-section {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.contact-text {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+/* リンクボタンの並び */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background-color: #f8fafc;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+/* ホバー時にテーマカラーの黄色でフチ取り & 少し浮く */
+.contact-btn:hover {
+  background-color: #fef08a;
+  border-color: #facc15;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(250, 204, 21, 0.25);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+/* --- フッター のデザイン --- */
+.site-footer {
+  background-color: #0f172a; 
+  color: #94a3b8;
+  text-align: center;
+  padding: 24px 20px;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
