@@ -28,6 +28,12 @@
 
 /* ---全体のスタイル --- */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Quicksand", "M PLUS 1p", sans-serif;
   color: #0f172a;
